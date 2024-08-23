@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    {% for message in messages%}
+    <div class="alert alert-{{messagee.tag}} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    <h3>Welcome to my app</h3>
+    {% if user.is_authenticated%}
+    <h3>hello {{'fname'}}</h3>
+    <h4>You're successfully logged in</h4>
+    <button type="submit"><a href="/signout">SignOut</a></button>
+
+    {% else %}
+    <button type="submit"><a href="/signup">SignUp</a></button>
+    <button type="submit"><a href="/signin">SignIn</a></button>
+    {% endif %}
+</body>
+</html>
